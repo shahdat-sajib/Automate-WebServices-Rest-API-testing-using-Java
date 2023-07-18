@@ -74,22 +74,30 @@ public class apigetrequest {
         System.out.println("Response:\n" + res.asString());
     }
 
-    //Extracting actual value and make assertion with expected value
+    //Extracting actual value and assert with expected value
     @Test
     public void Test_06() {
-        String weatherDescription =
+        Response res =
                 given()
                         .param("q", "Bangladesh")
                         .param("appid", "801772ada32df1f5743ceb9baf3b461a")
 
                         .when()
-                        .get("https://api.openweathermap.org/data/2.5/weather")
+                        .get("https://api.openweathermap.org/data/2.5/weather");
+
+        String actualWeatherDetails =
+                res
                         .then()
                         .contentType(ContentType.JSON)
                         .extract()
                         .path("weather[0].description");
 
-        System.out.println("Weather Description from Response: " + weatherDescription);
+        String expectedWeatherReport = "few clouds";
+        if(actualWeatherDetails.equalsIgnoreCase(expectedWeatherReport)){
+            System.out.println("Test Passed");
+        }else{
+            Assert.assertEquals(expectedWeatherReport, actualWeatherDetails);
+        }
 
 
     }
