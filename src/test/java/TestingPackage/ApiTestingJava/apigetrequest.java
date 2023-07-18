@@ -26,7 +26,7 @@ public class apigetrequest {
     }
 
     //Using parameters
-    @Test
+    //@Test
     public void Test_03(){
         Response res =
                 given()
@@ -42,5 +42,19 @@ public class apigetrequest {
          }else{
              System.out.println("API is NOT working with parameters");
          }
+    }
+
+    //Aeert in rest assured api
+    @Test
+    public void Test_04(){
+        given()
+                .param("q", "Bangladesh")
+                .param("appid", "801772ada32df1f5743ceb9baf3b461a")
+
+                .when()
+                .get("https://api.openweathermap.org/data/2.5/weather")
+
+                .then()
+                .assertThat().statusCode(200);
     }
 }
