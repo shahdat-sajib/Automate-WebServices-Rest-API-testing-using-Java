@@ -4,7 +4,6 @@ import com.jayway.restassured.http.ContentType;
 import com.jayway.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import static com.jayway.restassured.RestAssured.*;
 
 public class apigetrequest {

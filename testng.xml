@@ -3,7 +3,7 @@
 <suite name="API Suite" parallel="tests">
     <test name="Test on Rest API ">
         <classes>
-            <class name="TestingPackage.ApiTestingJava.apigetrequest" />
+            <class name="TestingPackage.ApiTestingJava.JsonServerRequest" />
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->
